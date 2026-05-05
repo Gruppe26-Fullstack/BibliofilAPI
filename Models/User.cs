@@ -8,13 +8,13 @@ public class User
 
     [Display (Name = "First Name")]
     [StringLength(30, MinimumLength = 1)]
-    [RegularExpression("^[A-Za-zæøåÆØÅ .'-]+$")]
+    [RegularExpression("^[A-Za-zæøåÆØÅ .'-]+$", ErrorMessage = "Only letters, -, ' and . are permitted")]
     [Required]
     public string? FirstName { get; set; }
 
     [Display (Name = "Last Name")]
     [StringLength(30, MinimumLength = 1)]
-    [RegularExpression("^[A-Za-zæøåÆØÅ .'-]+$")]
+    [RegularExpression("^[A-Za-zæøåÆØÅ .'-]+$", ErrorMessage = "Only letters, -, ' and . are permitted")]
     [Required]
     public string? LastName { get; set; }
 

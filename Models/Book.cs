@@ -6,7 +6,7 @@ public class Book
 {
     public int Id { get; set; }
 
-    [RegularExpression(@"^(978|979)\d{10}$")]
+    [RegularExpression(@"^(978|979)\d{10}$", ErrorMessage = "ISBN must start with 979 or 978, and must be 13 digits long")]
     [Required]
     public string? ISBN { get; set; }
 
@@ -15,7 +15,8 @@ public class Book
     public string? Title { get; set; }
 
     [StringLength(60, MinimumLength = 1)]
-    [RegularExpression(@"^[A-Za-z]+([ .'-][A-Za-z]+)*\.?$")]
+    [RegularExpression(@"^[A-Za-zæøåÆØÅ .'-]+$", ErrorMessage = "Only letters, -, ' and . are permitted")]
+    [Required]
     public string? Author { get; set; }
 
     [Range(0, 3000, ErrorMessage = "Year must be between 0 and 3000")]
