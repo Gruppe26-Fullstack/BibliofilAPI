@@ -4,6 +4,7 @@ namespace BibliofilAPI.Models;
 
 public class User
 {
+    [Display(Name = "User ID")]
     public int Id { get; set; }
 
     [Display (Name = "First Name")]

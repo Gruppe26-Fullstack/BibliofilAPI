@@ -4,6 +4,7 @@ namespace BibliofilAPI.Models;
 
 public class Book
 {
+    [Display (Name = "Book ID")]
     public int Id { get; set; }
 
     [RegularExpression(@"^(978|979)\d{10}$", ErrorMessage = "ISBN must start with 979 or 978, and must be 13 digits long")]

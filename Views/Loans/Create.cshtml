@@ -12,6 +12,8 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <span asp-validation-for="BookId" class="text-danger"></span>
+            <span asp-validation-for="UserId" class="text-danger"></span>
             <div class="form-group">
                 <label asp-for="LoanDate" class="control-label"></label>
                 <input asp-for="LoanDate" class="form-control" />
@@ -22,7 +24,7 @@
                 <select asp-for="UserId" class ="form-control" asp-items="ViewBag.UserId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="BookId" class="control-label"></label>
+                <label asp-for="BookId" class="control-label">Book Title</label>
                 <select asp-for="BookId" class ="form-control" asp-items="ViewBag.BookId"></select>
             </div>
             <div class="form-group">

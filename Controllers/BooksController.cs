@@ -58,6 +58,7 @@ namespace BibliofilAPI.Controllers
         {
             if (ModelState.IsValid)
             {
+                book.IsAvailable = true;
                 _context.Add(book);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
