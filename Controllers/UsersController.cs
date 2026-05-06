@@ -22,7 +22,7 @@ namespace BibliofilAPI.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Users.ToListAsync());
+            return View(await _context.LibraryUsers.ToListAsync());
         }
 
         // GET: Users/Details/5
@@ -33,7 +33,7 @@ namespace BibliofilAPI.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var user = await _context.LibraryUsers
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -54,7 +54,7 @@ namespace BibliofilAPI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Email")] User user)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Email")] LibraryUser user)
         {
             if (ModelState.IsValid)
             {
@@ -73,7 +73,7 @@ namespace BibliofilAPI.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.LibraryUsers.FindAsync(id);
             if (user == null)
             {
                 return NotFound();
@@ -86,7 +86,7 @@ namespace BibliofilAPI.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email")] LibraryUser user)
         {
             if (id != user.Id)
             {
@@ -124,7 +124,7 @@ namespace BibliofilAPI.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users
+            var user = await _context.LibraryUsers
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -139,10 +139,10 @@ namespace BibliofilAPI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.LibraryUsers.FindAsync(id);
             if (user != null)
             {
-                _context.Users.Remove(user);
+                _context.LibraryUsers.Remove(user);
             }
 
             await _context.SaveChangesAsync();
@@ -151,7 +151,7 @@ namespace BibliofilAPI.Controllers
 
         private bool UserExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.LibraryUsers.Any(e => e.Id == id);
         }
     }
 }

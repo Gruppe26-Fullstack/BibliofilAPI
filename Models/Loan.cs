@@ -12,6 +12,6 @@ public class Loan
 
     public int UserId { get; set; }
     public int BookId { get; set; }
-    public User? User { get; set; }
+    public LibraryUser? User { get; set; }
     public Book? Book { get; set; }
 }

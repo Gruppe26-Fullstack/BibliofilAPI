@@ -50,7 +50,7 @@ namespace BibliofilAPI.Controllers
         public IActionResult Create()
         {
             ViewData["BookId"] = new SelectList(_context.Books.Where(d => d.IsAvailable), "Id", "Title");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["UserId"] = new SelectList(_context.LibraryUsers, "Id", "Id");
             return View();
         }
 
@@ -63,7 +63,7 @@ namespace BibliofilAPI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _context.Users.FindAsync(loan.UserId);
+                var user = await _context.LibraryUsers.FindAsync(loan.UserId);
                 var book = await _context.Books.FindAsync(loan.BookId);
 
                 if ((user == null) || (book == null))
@@ -75,7 +75,7 @@ namespace BibliofilAPI.Controllers
                 {
                     ModelState.AddModelError("BookId", "The book is already part of an active loan");
                     ViewData["BookId"] = new SelectList(_context.Books.Where(d => d.IsAvailable), "Id", "Title");
-                    ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+                    ViewData["UserId"] = new SelectList(_context.LibraryUsers, "Id", "Id");
                     return View(loan);
                 }
 
@@ -85,7 +85,7 @@ namespace BibliofilAPI.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["BookId"] = new SelectList(_context.Books.Where(d => d.IsAvailable), "Id", "Title");
-            ViewData["UserId"] = new SelectList(_context.Users, "Id", "Id");
+            ViewData["UserId"] = new SelectList(_context.LibraryUsers, "Id", "Id");
             return View(loan);
         }
 

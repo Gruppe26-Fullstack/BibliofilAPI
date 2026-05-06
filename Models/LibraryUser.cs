@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BibliofilAPI.Models;
 
-public class User
+public class LibraryUser
 {
     [Display(Name = "User ID")]
     public int Id { get; set; }
