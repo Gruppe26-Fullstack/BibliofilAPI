@@ -1,0 +1,1 @@
+Commit 7 (Krav 9) - Innlogging/Registrering via Identity kan gjøres ved å trykke på Login/Register øverst i høyre hjørne på hovedsiden. Det er registrert en bruker med email: "test@usn.no", og passord: "Test123!".
