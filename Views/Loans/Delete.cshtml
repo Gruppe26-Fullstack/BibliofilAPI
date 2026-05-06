@@ -10,37 +10,37 @@
 <div>
     <h4>Loan</h4>
     <hr />
-    <dl class="row">
+    <dl class="grid grid-cols-2 gap-4">
         
-        <dt class = "col-sm-2">
+        <dt class = "<dt class="font-semibold">
             @Html.DisplayNameFor(model => model.User.Id)
         </dt>
-        <dd class = "col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.User.Id)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "<dt class="font-semibold">
             @Html.DisplayNameFor(model => model.Book.Id)
         </dt>
-        <dd class = "col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.Book.Id)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "<dt class="font-semibold">
             @Html.DisplayNameFor(model => model.Book.Title)
         </dt>
-        <dd class = "col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.Book.Title)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class = "<dt class="font-semibold">
             @Html.DisplayNameFor(model => model.LoanDate)
         </dt>
-        <dd class = "col-sm-10">
+        <dd>
             @Html.DisplayFor(model => model.LoanDate)
         </dd>
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Delete" class="rounded-lg bg-red-600 px-4 py-2 text-white hover:bg-red-700" /> |
         <a asp-action="Index">Back to List</a>
     </form>
 </div>
